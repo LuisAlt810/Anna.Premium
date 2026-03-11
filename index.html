@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anna - Premium • Anna-the-Guardian</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c5cff;--muted:#98a0b3;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:#e6eef8;background:linear-gradient(180deg,#071028 0%, #091022 60%), radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.06), transparent 8%);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}
+
+    .container{width:100%;max-width:980px}
+    header{display:flex;gap:18px;align-items:center;margin-bottom:22px}
+    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#3dd1c9);display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 6px 30px rgba(7,12,30,0.6)}
+    h1{margin:0;font-size:20px;letter-spacing:-0.2px}
+    .sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 6px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+
+    .hero{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(124,92,255,0.06), rgba(61,209,201,0.02));display:flex;flex-direction:column;gap:12px}
+    .big{font-size:28px;margin:0}
+    .badge{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent);font-size:13px;border:1px solid rgba(124,92,255,0.12)}
+
+    .stats{display:flex;gap:12px;margin-top:8px}
+    .stat{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;flex:1;text-align:center}
+    .stat strong{display:block;font-size:18px}
+    .muted{color:var(--muted);font-size:13px}
+
+    .changelog h3{margin:0 0 8px 0}
+    .changelog ul{margin:0;padding-left:18px;color:var(--muted)}
+
+    .owners{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .owner{background:linear-gradient(180deg,#101827, #09121b);padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-weight:600}
+
+    .right .card{position:sticky;top:24px}
+    .actions{display:flex;gap:8px;margin-top:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#3dd1c9);color:#081023}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    /* Loading overlay */
+    .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(2,6,23,0.8), rgba(2,6,23,0.92));z-index:9999;backdrop-filter: blur(3px)}
+    .loader{width:420px;max-width:90%;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);text-align:left}
+    .loader h2{margin:0 0 8px 0}
+    .step{display:flex;align-items:center;gap:12px;padding:8px 6px;border-radius:8px}
+    .dot{width:12px;height:12px;border-radius:99px;background:rgba(255,255,255,0.06);display:inline-block}
+    .dot.active{background:var(--accent);box-shadow:0 6px 18px rgba(124,92,255,0.18)}
+    .msg{font-weight:700}
+    .submsg{color:var(--muted);font-size:13px}
+    .progress{height:8px;background:rgba(255,255,255,0.03);border-radius:999px;margin-top:12px;overflow:hidden}
+    .progress > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#3dd1c9)}
+
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.right{order:2}.left{order:1}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">🛡️</div>
+      <div>
+        <h1>Anna — <span style="color:var(--accent)">Premium</span> <span class="sub">Anna-the-Guardian • Premium bot experience</span></h1>
+        <div class="sub">Secure moderation, premium commands, shop & SKUs, and friendly guardian features.</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <div class="left">
+        <div class="card hero">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <p class="big">Anna — Premium</p>
+              <div class="sub">Premium build of Anna-the-Guardian with exclusive commands and shop support.</div>
+            </div>
+            <div class="badge">76 Commands</div>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><strong>✔️ Premium</strong><span class="muted">Exclusive commands & priority support</span></div>
+            <div class="stat"><strong>🛒 SKUs</strong><span class="muted">Shop enabled — virtual items & perks</span></div>
+            <div class="stat"><strong>⚡ Fast</strong><span class="muted">Bugs fixed & performance tuned (v1.13)</span></div>
+          </div>
+
+          <div class="owners">
+            <div class="owner">Owner: Zelda_Life</div>
+            <div class="owner">Owner: luisthegoat7301</div>
+          </div>
+
+          <div class="changelog" style="margin-top:12px">
+            <h3>Update <strong>1.13</strong> — Released</h3>
+            <ul>
+              <li>New exclusive premium commands!</li>
+              <li>Bugs & performance fixed</li>
+              <li>Made a nice website</li>
+              <li><strong>76 Commands Total!</strong></li>
+              <li>Enabled SKUs and added shop items</li>
+            </ul>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" onclick="window.open('#invite','_blank')">Invite Anna (Premium)</button>
+            <button class="btn ghost" onclick="window.open('#support','_blank')">Support Server</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3 style="margin-top:0">About Anna-the-Guardian (Premium)</h3>
+          <p class="muted">Anna is a powerful moderation and utility bot built for communities that need safety with style. The premium edition adds exclusive commands, a shop system with SKUs, and owner-level features for Zelda_Life and luisthegoat7301.</p>
+          <p class="muted">Use the invite button above to add Anna to your server with the recommended permissions. Anna respects privacy and follows the server's moderation settings.</p>
+        </div>
+
+      </div>
+
+      <div class="right">
+        <div class="card">
+          <h3 style="margin-top:0">Quick Info</h3>
+          <p class="muted">Version <strong>1.13</strong> — Premium build</p>
+          <p class="muted">Owners: Zelda_Life & luisthegoat7301</p>
+
+          <div style="margin-top:10px">
+            <strong>What's new</strong>
+            <ul class="muted" style="padding-left:18px;margin-top:6px">
+              <li>Premium-only commands (fun & utility)</li>
+              <li>Improved responsiveness & bug fixes</li>
+              <li>Shop SKUs enabled for in-server purchases</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px">
+            <strong>Support</strong>
+            <p class="muted">If you run into issues, ping the owners directly or open a ticket in the support server.</p>
+          </div>
+
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin-top:0">Mini FAQ</h3>
+          <p class="muted"><strong>Q:</strong> How many commands? <strong>76</strong></p>
+          <p class="muted"><strong>Q:</strong> Is there a shop? <strong>Yes — SKUs enabled</strong></p>
+          <p class="muted"><strong>Q:</strong> Who can manage the bot? <strong>Owners & configured admins</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="muted">Anna-the-Guardian • Premium • © <span id="yr"></span></div>
+    </footer>
+  </div>
+
+  <!-- Loading overlay (simulated) -->
+  <div id="overlay" class="overlay">
+    <div class="loader">
+      <h2>Checking access...</h2>
+      <div class="step" id="step1"><span class="dot" id="d1"></span><div><div class="msg" id="m1">Checking for view Access</div><div class="submsg">Verifying your permissions...</div></div></div>
+      <div class="step" id="step2"><span class="dot" id="d2"></span><div><div class="msg" id="m2">Granting owner: Zelda_Life & luisthegoat7301 perms</div><div class="submsg">Assigning premium owner roles</div></div></div>
+      <div class="step" id="step3"><span class="dot" id="d3"></span><div><div class="msg" id="m3">Loaded! Premium bot of Anna-the-Guardian.</div><div class="submsg">Welcome — premium features ready.</div></div></div>
+
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Simulate loading steps
+    const steps = [
+      {dot:'d1', msg:'m1', delay:3000},
+      {dot:'d2', msg:'m2', delay:5000},
+      {dot:'d3', msg:'m3', delay:2400}
+    ];
+
+    const bar = document.getElementById('bar');
+    let progress = 0;
+
+    function setActive(i){
+      for(let s of steps){document.getElementById(s.dot).classList.remove('active')}
+      document.getElementById(steps[i].dot).classList.add('active');
+    }
+
+    // animate
+    setActive(0);
+    setTimeout(()=>{
+      progress = 35; bar.style.width = progress + '%';
+      setActive(1);
+    }, steps[0].delay);
+
+    setTimeout(()=>{
+      progress = 75; bar.style.width = progress + '%';
+      setActive(2);
+    }, steps[1].delay);
+
+    setTimeout(()=>{
+      progress = 100; bar.style.width = progress + '%';
+      // fade out overlay
+      const ov = document.getElementById('overlay');
+      ov.style.transition = 'opacity 700ms ease, visibility 700ms';
+      ov.style.opacity = '0';
+      setTimeout(()=>{ov.style.display = 'none'}, 700);
+    }, steps[2].delay + 600);
+  </script>
+</body>
+</html>
