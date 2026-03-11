@@ -1,4 +1,4 @@
-name: Anna Premium Deploy
+name: Anna Deploy
 
 on:
 push:
@@ -12,75 +12,25 @@ pages: write
 id-token: write
 
 jobs:
-anna-start:
-name: Anna Boot
+deploy:
+name: Deploy Anna Website
 runs-on: ubuntu-latest
-steps:
-- name: Boot message
-run: |
-echo "Checking for view Access..."
-sleep 1
-echo "Granting owner: Zelda_Life permissions..."
-sleep 1
-echo "Granting owner: luisthegoat7301 permissions..."
-sleep 1
-echo "Loaded! Premium bot of Anna-the-Guardian."
-echo "Update 1.13"
-echo "76 Commands Total"
-
-anna-check:
-name: Check Files
-runs-on: ubuntu-latest
-needs: anna-start
-steps:
-- uses: actions/checkout@v4
 
 ```
-  - name: Verify index.html
-    run: |
-      if [ ! -f index.html ]; then
-        echo "index.html not found"
-        exit 1
-      fi
-      echo "index.html found"
-```
-
-build:
-name: Build Website
-runs-on: ubuntu-latest
-needs: anna-check
 steps:
-- uses: actions/checkout@v4
+  - name: Checkout repository
+    uses: actions/checkout@v4
 
-```
   - name: Prepare site
     run: |
       mkdir dist
-      cp index.html dist/
+      cp index.html dist/index.html
 
-  - name: Upload artifact
+  - name: Upload Pages artifact
     uses: actions/upload-pages-artifact@v3
     with:
       path: dist
+
+  - name: Deploy to GitHub Pages
+    uses: actions/deploy-pages@v4
 ```
-
-deploy:
-name: Deploy to GitHub Pages
-runs-on: ubuntu-latest
-needs: build
-environment:
-name: github-pages
-steps:
-- name: Deploy
-uses: actions/deploy-pages@v4
-
-anna-finish:
-name: Deployment Complete
-runs-on: ubuntu-latest
-needs: deploy
-steps:
-- name: Done
-run: |
-echo "Anna-the-Guardian Premium deployed!"
-echo "Owners: Zelda_Life & luisthegoat7301"
-echo "Update 1.13 live"
